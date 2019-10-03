@@ -1,48 +1,49 @@
 require 'test_helper'
 
-class TodoListsControllerTest < ActionDispatch::IntegrationTest
+class TodoListsControllerTest < ActionController::TestCase
   setup do
     @todo_list = todo_lists(:one)
   end
 
   test "should get index" do
-    get todo_lists_url
+    get :index
     assert_response :success
+    assert_not_nil assigns(:todo_lists)
   end
 
   test "should get new" do
-    get new_todo_list_url
+    get :new
     assert_response :success
   end
 
   test "should create todo_list" do
     assert_difference('TodoList.count') do
-      post todo_lists_url, params: { todo_list: { description: @todo_list.description, title: @todo_list.title } }
+      post :create, todo_list: { description: @todo_list.description, title: @todo_list.title }
     end
 
-    assert_redirected_to todo_list_url(TodoList.last)
+    assert_redirected_to todo_list_path(assigns(:todo_list))
   end
 
   test "should show todo_list" do
-    get todo_list_url(@todo_list)
+    get :show, id: @todo_list
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_todo_list_url(@todo_list)
+    get :edit, id: @todo_list
     assert_response :success
   end
 
   test "should update todo_list" do
-    patch todo_list_url(@todo_list), params: { todo_list: { description: @todo_list.description, title: @todo_list.title } }
-    assert_redirected_to todo_list_url(@todo_list)
+    patch :update, id: @todo_list, todo_list: { description: @todo_list.description, title: @todo_list.title }
+    assert_redirected_to todo_list_path(assigns(:todo_list))
   end
 
   test "should destroy todo_list" do
     assert_difference('TodoList.count', -1) do
-      delete todo_list_url(@todo_list)
+      delete :destroy, id: @todo_list
     end
 
-    assert_redirected_to todo_lists_url
+    assert_redirected_to todo_lists_path
   end
 end
