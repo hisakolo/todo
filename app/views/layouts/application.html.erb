@@ -11,7 +11,6 @@
 <body>
 <header>
 <%= link_to 'TO DO LIST', todo_lists_path %>
-</header>
 <% if user_signed_in? %>
         <div class="user_nav grid-6">
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
@@ -23,6 +22,7 @@
           <%= link_to "Signup", new_user_registration_path, class: 'post' %>
         </div>
       <% end %>
+</header>
 <div class="container">
 	<%= yield %>
 </div>
