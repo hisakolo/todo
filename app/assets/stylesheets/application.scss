@@ -37,11 +37,15 @@ body {
 }
 
 header{
-  font-size:40px;
+	font-family: Bakery;
+	height:100px;
+  font-size:100px;
   color:olive;
   letter-spacing: 0.18em;
   padding-left: 20px;
-  background-color: white;
+	background-color: white;
+	a:link        {text-decoration: none;}
+	a:visited    {text-decoration: none;}
 }
 
 .clearfix:before,
@@ -223,3 +227,15 @@ input[type="submit"] {
 	}
 }
 ::-webkit-input-placeholder { color: $dark; }
+
+
+.grid-6{
+	padding:0 20px;
+	float:right;
+	font-family: DK Lemon Yellow Sun;
+	font-size:40px;
+	color:olive;
+	a:link        {text-decoration: none;}
+	a:visited    {text-decoration: none;}
+	a:hover        {text-decoration: underline;}
+}
