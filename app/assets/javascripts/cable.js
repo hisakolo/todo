@@ -11,3 +11,7 @@
   App.cable = ActionCable.createConsumer();
   console.log(this);
 }).call(this);
+
+// $(function(){
+//   $("p").fadeOut(1500);
+// });
